@@ -183,6 +183,7 @@ public class frmCrearCliente extends javax.swing.JFrame {
 
         //Oculta el label de cp por si ya se ha introducido el correcto
         lblcperror.setVisible(false);
+        lblTelError.setVisible(false);
 
         //Comprueba que el CP intriducido es correcto
         try{
