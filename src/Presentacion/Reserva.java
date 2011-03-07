@@ -25,6 +25,7 @@ public class Reserva implements Serializable{
         this.CodigoReserva=frmPrincipal.agencia.ContadorReservas;
         frmPrincipal.agencia.ContadorReservas++;
         ImporteRestante=recorrido.getPrecio();
+        ImporteTotal=recorrido.getPrecio();
     }
 
     public Reserva() {
