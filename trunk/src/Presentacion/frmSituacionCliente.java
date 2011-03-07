@@ -167,7 +167,7 @@ public class frmSituacionCliente extends javax.swing.JFrame {
 
     private void btnAnularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnularMouseClicked
         // TODO add your handling code here:
-        frmDevolucion frmdev = new frmDevolucion(ClienteActual, posicion);
+        frmDevolucion frmdev = new frmDevolucion(ClienteActual, posicion,this);
         frmdev.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frmdev.setLocationRelativeTo(this);
         frmdev.setVisible(true);
