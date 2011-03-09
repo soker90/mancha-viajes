@@ -219,9 +219,9 @@ public class frmCrearReserva extends javax.swing.JFrame {
         {
             Recorrido nuevo=frmPrincipal.agencia.CatalogoInicial.Recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).Clonar();
             try{
-                nuevo.setFechaInicio(f_format.parse(txtFechaInicio.getText()));
-                nuevo.setFechaFin(f_format.parse(txtFechaFin.getText()));
                 Reserva nuevaR = new Reserva((Integer)jSpinnPersonas.getValue(), nuevo);
+                nuevaR.setFechaInicio(f_format.parse(txtFechaInicio.getText()));
+                nuevaR.setFechaFin(f_format.parse(txtFechaFin.getText()));
                 nuevaR.setImporteRestante(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
                 nuevaR.setImporteTotal(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
                 ReservasCliente.add(nuevaR);

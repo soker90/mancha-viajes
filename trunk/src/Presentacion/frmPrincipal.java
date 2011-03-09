@@ -15,7 +15,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
@@ -232,7 +231,7 @@ public class frmPrincipal extends JFrameImage {
         int cont=0;
         for (int i= 0; i < frmPrincipal.agencia.Clientes.size(); i++) {
             for (int j= 0; j < frmPrincipal.agencia.Clientes.get(i).Reservas.size(); j++) {
-                if(frmPrincipal.agencia.Clientes.get(i).Reservas.get(j).recorrido.FechaFin.before(g))
+                if(frmPrincipal.agencia.Clientes.get(i).Reservas.get(j).FechaFin.before(g))
                 {
                    frmPrincipal.agencia.Clientes.get(i).Reservas.remove(j);
                    borrados=true;
