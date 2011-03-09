@@ -70,6 +70,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_nuevo_clic"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_anular">
       <Properties>

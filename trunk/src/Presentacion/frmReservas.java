@@ -11,7 +11,7 @@
 
 package Presentacion;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -21,22 +21,22 @@ import javax.swing.JOptionPane;
  * @author moises
  */
 public class frmReservas extends javax.swing.JFrame {
-    ArrayList<Reserva> reservas;
+    Cliente ClienteActual;
     /** Creates new form frmReservas */
     public frmReservas(){
         initComponents();
     }
-    public frmReservas(String titulo,ArrayList<Reserva> reservas) {
+    public frmReservas(String titulo,Cliente c) {
 
         this.setTitle(titulo);
-        this.reservas=reservas;
+        this.ClienteActual=c;
         initComponents();
         this.refrescarjlist();
     }
 
-    public void refrescarjlist()
+    public final void refrescarjlist()
     {
-        jlst_recorridos.setListData(reservas.toArray());
+        jlst_recorridos.setListData(ClienteActual.getReservas().toArray());
         try{
             jlst_recorridos.setSelectedIndex(0);
         }catch(Exception ex){}
@@ -61,6 +61,11 @@ public class frmReservas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_nuevo.setText("Nuevo");
+        btn_nuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_nuevo_clic(evt);
+            }
+        });
 
         btn_anular.setText("Anular");
         btn_anular.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,7 +138,7 @@ public class frmReservas extends javax.swing.JFrame {
     private void jlst_recorridosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jlst_recorridosValueChanged
         // TODO add your handling code here:
         try{
-            if(reservas.get(jlst_recorridos.getSelectedIndex()).ImporteRestante==0)
+            if(ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).ImporteRestante==0)
                 btn_pagos.setEnabled(false);
             else
                 btn_pagos.setEnabled(true);
@@ -147,13 +152,13 @@ public class frmReservas extends javax.swing.JFrame {
 
     private void btn_pagosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pagosMouseClicked
         // TODO add your handling code here:
-        if(reservas.size()==0)
+        if(ClienteActual.getReservas().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El cliente no tiene reservas", "Error", 0);
         }
         else
         {
-            frmPagoReserva frmp = new frmPagoReserva(reservas.get(jlst_recorridos.getSelectedIndex()),this);
+            frmPagoReserva frmp = new frmPagoReserva(ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()),this);
             frmp.setLocationRelativeTo(this);
             frmp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frmp.setAlwaysOnTop(true);
@@ -162,7 +167,7 @@ public class frmReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_pagosMouseClicked
 
     private void btn_nuevo_clic(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_nuevo_clic
-        frmCrearReserva NuevaReserva = new frmCrearReserva(jlst_recorridos,reservas);
+        frmCrearReserva NuevaReserva = new frmCrearReserva(jlst_recorridos,ClienteActual.getReservas());
         NuevaReserva.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         NuevaReserva.setLocationRelativeTo(this);
         NuevaReserva.setVisible(true);
@@ -170,17 +175,29 @@ public class frmReservas extends javax.swing.JFrame {
 
     private void btn_anularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_anularMouseClicked
         // TODO add your handling code here:
-        if(reservas.get(jlst_recorridos.getSelectedIndex()).getFechaInicio().after(new GregorianCalendar().getTime()))
-        {
-            if(reservas.get(jlst_recorridos.getSelectedIndex()).getFechaFin().before(new GregorianCalendar().getTime()))
-            {
-
-            }
-
-        }
+        if(ClienteActual.getReservas().isEmpty())
+            JOptionPane.showMessageDialog(null, "No hay recorridos", "Error", 0);
         else
         {
-            
+            if(JOptionPane.showConfirmDialog(null, "¿Estas seguro?")==JOptionPane.YES_OPTION)
+            {
+                Date finicio=ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).getFechaInicio();
+                Date f_fin=ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).getFechaFin();
+                if(finicio.before(new GregorianCalendar().getTime())&&f_fin.after(new GregorianCalendar().getTime()))
+                {
+                    frmDevolucion formudev = new frmDevolucion(ClienteActual, jlst_recorridos.getSelectedIndex(), this);
+                    formudev.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    formudev.setLocationRelativeTo(this);
+                    formudev.setVisible(true);
+                }
+                else
+                {
+                    double devolucion = ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).getImporteTotal()-ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).getImporteRestante();
+                    JOptionPane.showMessageDialog(null, "La reserva ha sido eliminada, el importe a devolver es de "+devolucion+"€", "Reserva Borrada", 1);
+                    ClienteActual.Reservas.remove(jlst_recorridos.getSelectedIndex());
+                    refrescarjlist();
+                }
+            }
         }
     }//GEN-LAST:event_btn_anularMouseClicked
 

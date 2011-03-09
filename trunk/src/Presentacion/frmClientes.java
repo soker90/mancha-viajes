@@ -163,7 +163,7 @@ public class frmClientes extends javax.swing.JFrame {
         else
         {
             //frmReservas fr = new frmReservas(frmPrincipal.agencia.Clientes.get(jlst_client.getSelectedIndex()).getNombreCompleto(), frmPrincipal.agencia.Clientes.get(jlst_client.getSelectedIndex()).getReservas());
-            frmReservas fr = new frmReservas(frmPrincipal.agencia.Clientes.get(jlst_client.getSelectedIndex()).getNombreCompleto(), frmPrincipal.agencia.Clientes.get(jlst_client.getSelectedIndex()).getReservas());
+            frmReservas fr = new frmReservas(frmPrincipal.agencia.Clientes.get(jlst_client.getSelectedIndex()).getNombreCompleto(), frmPrincipal.agencia.Clientes.get(jlst_client.getSelectedIndex()));
             fr.setLocationRelativeTo(this);
             fr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             fr.setVisible(true);
