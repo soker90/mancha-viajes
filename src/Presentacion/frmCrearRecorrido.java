@@ -5,9 +5,9 @@ package Presentacion;
 
 import java.awt.Color;
 import java.awt.Cursor;
-import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 
 public class frmCrearRecorrido extends javax.swing.JFrame {
@@ -31,10 +31,15 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
         cmbCiudadOrigen.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.toArray()));
         cmbCiudadDestino.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.toArray()));
 
-        cmbTransIda.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.get(0).Transportes.toArray()));
-        cmbTransVuelta.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.get(0).Transportes.toArray()));
+        try
+        {
+            cmbTransIda.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.get(0).Transportes.toArray()));
+            cmbTransVuelta.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.get(0).Transportes.toArray()));
+            cmbHotel.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.get(0).Hoteles.toArray()));
+        }
+        catch(Exception e){
 
-        cmbHotel.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.get(0).Hoteles.toArray()));
+        }
 
     }
 
@@ -56,6 +61,10 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
         cmbHotel = new JComboBox();
         cmbTransIda = new JComboBox();
         cmbTransVuelta = new JComboBox();
+        txtPrecio = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        btn_cancelar = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +95,23 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel6.setText("Precio");
+
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelar_click(evt);
+            }
+        });
+
+        btnCrear.setText("Crear");
+        btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrear_click(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,7 +119,7 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(cmbCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
@@ -103,32 +129,42 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(cmbHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbCiudadOrigen, 0, 202, Short.MAX_VALUE)
+                .addComponent(cmbCiudadOrigen, 0, 212, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(cmbTransIda, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(cmbTransVuelta, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCrear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_cancelar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbTransVuelta, javax.swing.GroupLayout.Alignment.LEADING, 0, 196, Short.MAX_VALUE))))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -156,7 +192,15 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbTransVuelta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cancelar)
+                    .addComponent(btnCrear))
+                .addContainerGap())
         );
 
         pack();
@@ -171,7 +215,27 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
         cmbHotel.setModel(new DefaultComboBoxModel(frmPrincipal.agencia.Ciudades.get(cmbCiudadDestino.getSelectedIndex()).Hoteles.toArray()));
     }//GEN-LAST:event_cmbCiudadDestinoItemStateChanged
 
+    private void btnCrear_click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear_click
+       try
+       {
+        Recorrido r=new Recorrido(frmPrincipal.agencia.Ciudades.get(cmbCiudadOrigen.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadDestino.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadDestino.getSelectedIndex()).Hoteles.get(cmbHotel.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadOrigen.getSelectedIndex()).Transportes.get(cmbTransIda.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadDestino.getSelectedIndex()).Transportes.get(cmbTransVuelta.getSelectedIndex()),Double.parseDouble(txtPrecio.getText()));
+       frmPrincipal.agencia.CatalogoInicial.Recorridos.add(r);
+       }
+       catch(Exception e)
+       {
+            JOptionPane.showMessageDialog(null,"Debe rellenar todos los campos","Crear Recorrido",JOptionPane.INFORMATION_MESSAGE);
+       }
+    }//GEN-LAST:event_btnCrear_click
+
+    private void btnCancelar_click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_click
+        this.dispose();
+    }//GEN-LAST:event_btnCancelar_click
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCancelar1;
+    private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btn_cancelar;
     private javax.swing.JComboBox cmbCiudadDestino;
     private javax.swing.JComboBox cmbCiudadOrigen;
     private javax.swing.JComboBox cmbHotel;
@@ -182,10 +246,12 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 
 }
