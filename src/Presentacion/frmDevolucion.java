@@ -32,8 +32,8 @@ public class frmDevolucion extends javax.swing.JFrame {
         parent=padre;
         ClienteActual=cli;
         posicion=pos;
-        finicio = ClienteActual.getReservas().get(posicion).getRecorrido().getFechaInicio();
-        f_fin = ClienteActual.getReservas().get(posicion).getRecorrido().getFechaFin();
+        finicio = ClienteActual.getReservas().get(posicion).getFechaInicio();
+        f_fin = ClienteActual.getReservas().get(posicion).getFechaFin();
         factual=new Date();
         factual= new GregorianCalendar().getTime();
         double Mstotal=f_fin.getTime()-finicio.getTime();

@@ -6,6 +6,7 @@
 package Presentacion;
 
 import java.io.Serializable;
+import java.util.Date;
 
 
 /**
@@ -18,6 +19,8 @@ public class Reserva implements Serializable{
     Double ImporteRestante=0.0;
     double ImporteTotal=0.0;
     int CodigoReserva;
+    Date FechaInicio;
+    Date FechaFin;
 
     public Reserva(int NumPersona, Recorrido r) {
         this.NumPersona = NumPersona;
@@ -90,6 +93,24 @@ public class Reserva implements Serializable{
     public void setImporteTotal(double ImporteTotal) {
         this.ImporteTotal = ImporteTotal;
     }
+
+    public Date getFechaFin() {
+        return FechaFin;
+    }
+
+    public void setFechaFin(Date FechaFin) {
+        this.FechaFin = FechaFin;
+    }
+
+    public Date getFechaInicio() {
+        return FechaInicio;
+    }
+
+    public void setFechaInicio(Date FechaInicio) {
+        this.FechaInicio = FechaInicio;
+    }
+
+
 
     
 

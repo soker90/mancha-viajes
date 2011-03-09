@@ -135,8 +135,8 @@ public class frmClientes extends javax.swing.JFrame {
             SimpleDateFormat f_format= new SimpleDateFormat("dd/MM/yyyy");
             Date factual = new GregorianCalendar().getTime();
             for (int i = 0; i <reservas.size() ; i++) {
-                Date finicio=reservas.get(i).getRecorrido().getFechaInicio();
-                Date f_fin=reservas.get(i).getRecorrido().getFechaFin();
+                Date finicio=reservas.get(i).getFechaInicio();
+                Date f_fin=reservas.get(i).getFechaFin();
                 if(finicio.before(factual)&&f_fin.after(factual))
                     posicion=i;
             }

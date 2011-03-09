@@ -26,13 +26,13 @@ import javax.swing.event.ChangeListener;
  *
  * @author moisescano
  */
-public class frmEditarReserva1 extends javax.swing.JFrame {
+public class frmEditarReserva extends javax.swing.JFrame {
     ArrayList<Recorrido> recorridos;
     ArrayList<Reserva> ReservasCliente;
     JList listado_actual;
     SimpleDateFormat f_format;
     /** Creates new form frmCrearReserva */
-    public frmEditarReserva1(JList listado,ArrayList<Reserva> R) {
+    public frmEditarReserva(JList listado,ArrayList<Reserva> R) {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setTitle("Configurar Recorrido");
         listado_actual=listado;
@@ -153,7 +153,7 @@ public class frmEditarReserva1 extends javax.swing.JFrame {
                         .addComponent(jcbRecorridosCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
                         .addComponent(jSpinnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +161,7 @@ public class frmEditarReserva1 extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtFechaInicio)
                             .addComponent(txtFechaFin)
@@ -219,9 +219,9 @@ public class frmEditarReserva1 extends javax.swing.JFrame {
         {
             Recorrido nuevo=frmPrincipal.agencia.CatalogoInicial.Recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).Clonar();
             try{
-                nuevo.setFechaInicio(f_format.parse(txtFechaInicio.getText()));
-                nuevo.setFechaFin(f_format.parse(txtFechaFin.getText()));
                 Reserva nuevaR = new Reserva((Integer)jSpinnPersonas.getValue(), nuevo);
+                nuevaR.setFechaInicio(f_format.parse(txtFechaInicio.getText()));
+                nuevaR.setFechaFin(f_format.parse(txtFechaFin.getText()));
                 nuevaR.setImporteRestante(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
                 nuevaR.setImporteTotal(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
                 ReservasCliente.add(nuevaR);

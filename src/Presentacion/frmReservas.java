@@ -61,11 +61,6 @@ public class frmReservas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_nuevo.setText("Nuevo");
-        btn_nuevo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_nuevo_clic(evt);
-            }
-        });
 
         btn_anular.setText("Anular");
         btn_anular.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,9 +170,9 @@ public class frmReservas extends javax.swing.JFrame {
 
     private void btn_anularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_anularMouseClicked
         // TODO add your handling code here:
-        if(reservas.get(jlst_recorridos.getSelectedIndex()).getRecorrido().getFechaInicio().after(new GregorianCalendar().getTime()))
+        if(reservas.get(jlst_recorridos.getSelectedIndex()).getFechaInicio().after(new GregorianCalendar().getTime()))
         {
-            if(reservas.get(jlst_recorridos.getSelectedIndex()).getRecorrido().getFechaFin().before(new GregorianCalendar().getTime()))
+            if(reservas.get(jlst_recorridos.getSelectedIndex()).getFechaFin().before(new GregorianCalendar().getTime()))
             {
 
             }
