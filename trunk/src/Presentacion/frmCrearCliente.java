@@ -181,7 +181,7 @@ public class frmCrearCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         boolean error=false;
 
-        //Oculta el label de cp por si ya se ha introducido el correcto
+        //Oculta el label de error por si ya se ha introducido el correcto
         lblcperror.setVisible(false);
         lblTelError.setVisible(false);
 

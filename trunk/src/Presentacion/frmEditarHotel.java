@@ -18,16 +18,19 @@ import javax.swing.JTextField;
  *
  * @author edu
  */
-public class frmCrearHotel extends javax.swing.JFrame {
+public class frmEditarHotel extends javax.swing.JFrame {
 
     /** Creates new form frmCrearHotel */
     int CodigoCiudad;
-    public frmCrearHotel(int Codigo) {
+    int CodigoHotel;
+    public frmEditarHotel(int Codigo, int codHotel) {
         initComponents();
         CodigoCiudad=Codigo;
         lblerror.setVisible(false);
         lblTelError.setVisible(false);
         setTitle("ManchaViajes: Nuevo Hotel");
+        CodigoHotel=codHotel;
+        CargarDatos();
     }
 
     /** This method is called from within the constructor to
@@ -62,7 +65,7 @@ public class frmCrearHotel extends javax.swing.JFrame {
 
         jLabel4.setText("Teléfono:");
 
-        btnCrear.setText("Crear");
+        btnCrear.setText("Aceptar");
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCrearMouseClicked(evt);
@@ -83,7 +86,7 @@ public class frmCrearHotel extends javax.swing.JFrame {
         lblerror.setFocusable(false);
 
         lblTelError.setBackground(new java.awt.Color(255, 0, 20));
-        lblTelError.setFont(new java.awt.Font("Comic Sans MS", 0, 10)); // NOI18N
+        lblTelError.setFont(new java.awt.Font("Comic Sans MS", 0, 10));
         lblTelError.setForeground(new java.awt.Color(255, 0, 0));
         lblTelError.setText("Teléfono erróneo");
         lblTelError.setAlignmentY(0.0F);
@@ -194,15 +197,26 @@ public class frmCrearHotel extends javax.swing.JFrame {
 
                 if(correcto)
                 {
-                    Hotel h = new Hotel(txtNombre.getText(),Estrellas , txtDireccion.getText(), txtTelefono.getText());
-                    frmPrincipal.agencia.Ciudades.get(CodigoCiudad).AñadirHotel(h);
-                    frmTransyHotel.listHoteles.setListData(frmPrincipal.agencia.Ciudades.get(CodigoCiudad).Hoteles.toArray());
-                    setVisible(false);
+                   frmPrincipal.agencia.Ciudades.get(CodigoCiudad).Hoteles.get(CodigoHotel).setNombre(txtNombre.getText());
+                   frmPrincipal.agencia.Ciudades.get(CodigoCiudad).Hoteles.get(CodigoHotel).setDireccion(txtDireccion.getText());
+                   frmPrincipal.agencia.Ciudades.get(CodigoCiudad).Hoteles.get(CodigoHotel).setEstrellas(Estrellas);
+                   frmPrincipal.agencia.Ciudades.get(CodigoCiudad).Hoteles.get(CodigoHotel).setTelefono(txtTelefono.getText());
+
+                   frmTransyHotel.listHoteles.setListData(frmPrincipal.agencia.Ciudades.get(CodigoCiudad).Hoteles.toArray());
+                   dispose();
                 }
             }
         }
     }//GEN-LAST:event_btnCrearMouseClicked
 
+    public final void CargarDatos()
+    {
+        Hotel h=frmPrincipal.agencia.Ciudades.get(CodigoCiudad).Hoteles.get(CodigoHotel);
+        txtNombre.setText(h.Nombre);
+        txtDireccion.setText(h.Direccion);
+        txtNumEstrellas.setText(String.valueOf(h.Estrellas));
+        txtTelefono.setText(String.valueOf(h.Telefono));
+    }
     /**
     * @param args the command line arguments
     */

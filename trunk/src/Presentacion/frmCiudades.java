@@ -12,7 +12,6 @@
 package Presentacion;
 
 import Presentacion.Sistema;
-import java.awt.Graphics;
 import javax.swing.JFrame;
 
 
@@ -45,6 +44,7 @@ public class frmCiudades extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listCiudades = new javax.swing.JList();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +83,13 @@ public class frmCiudades extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listCiudades);
 
+        btnEditar.setText("Editar");
+        btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarNuevaCiudad(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,9 +101,11 @@ public class frmCiudades extends javax.swing.JFrame {
                     .addComponent(btnHotelyTrans, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnNuevo)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBorrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnAtras)))
                 .addGap(20, 20, 20))
         );
@@ -108,8 +117,9 @@ public class frmCiudades extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
+                    .addComponent(btnAtras)
                     .addComponent(btnBorrar)
-                    .addComponent(btnAtras))
+                    .addComponent(btnEditar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHotelyTrans)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -144,6 +154,12 @@ public class frmCiudades extends javax.swing.JFrame {
         }catch(Exception ex){}
     }//GEN-LAST:event_btnHotelyTransMouseClicked
 
+    private void btnEditarNuevaCiudad(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarNuevaCiudad
+        frmEditarCiudad ed = new frmEditarCiudad(listCiudades.getSelectedIndex());
+        ed.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        ed.setVisible(true);
+    }//GEN-LAST:event_btnEditarNuevaCiudad
+
     /**
     * @param args the command line arguments
     */
@@ -158,6 +174,7 @@ public class frmCiudades extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnHotelyTrans;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JScrollPane jScrollPane1;
