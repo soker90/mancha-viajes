@@ -42,8 +42,9 @@ public class frmTransyHotel extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         listTransportes = new javax.swing.JList();
         btnNuevo = new javax.swing.JButton();
-        btnBorrar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,10 +79,10 @@ public class frmTransyHotel extends javax.swing.JFrame {
             }
         });
 
-        btnBorrar.setText("Borrar");
-        btnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEditar.setText("Editar");
+        btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBorrarMouseClicked(evt);
+                btnEditarMouseClicked(evt);
             }
         });
 
@@ -92,6 +93,13 @@ public class frmTransyHotel extends javax.swing.JFrame {
             }
         });
 
+        btnBorrar.setText("Borrar");
+        btnBorrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBorrarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,12 +107,14 @@ public class frmTransyHotel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlPestañas, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                    .addComponent(pnlPestañas, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnNuevo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBorrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(btnCerrar)))
                 .addContainerGap())
         );
@@ -116,8 +126,9 @@ public class frmTransyHotel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
-                    .addComponent(btnBorrar)
-                    .addComponent(btnCerrar))
+                    .addComponent(btnEditar)
+                    .addComponent(btnCerrar)
+                    .addComponent(btnBorrar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -139,6 +150,28 @@ public class frmTransyHotel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnNuevoMouseClicked
 
+    private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
+        if(pnlPestañas.getSelectedIndex()==0)
+        {
+            frmEditarHotel ed = new frmEditarHotel(numCiudad, listHoteles.getSelectedIndex());
+            ed.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            ed.setVisible(true);
+        }else{
+
+        }
+    }//GEN-LAST:event_btnEditarMouseClicked
+
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
+        setVisible(false);
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void pnlPestañasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pnlPestañasStateChanged
+        if(pnlPestañas.getSelectedIndex()==0)
+            setTitle("ManchaViajes: Hoteles");
+        else
+            setTitle("ManchaViajes: Transportes");
+    }//GEN-LAST:event_pnlPestañasStateChanged
+
     private void btnBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrarMouseClicked
         try{
         if(pnlPestañas.getSelectedIndex()==0)
@@ -156,17 +189,6 @@ public class frmTransyHotel extends javax.swing.JFrame {
         }catch(Exception ex){}
     }//GEN-LAST:event_btnBorrarMouseClicked
 
-    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
-        setVisible(false);
-    }//GEN-LAST:event_btnCerrarMouseClicked
-
-    private void pnlPestañasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pnlPestañasStateChanged
-        if(pnlPestañas.getSelectedIndex()==0)
-            setTitle("ManchaViajes: Hoteles");
-        else
-            setTitle("ManchaViajes: Transportes");
-    }//GEN-LAST:event_pnlPestañasStateChanged
-
     /**
     * @param args the command line arguments
     */
@@ -181,6 +203,7 @@ public class frmTransyHotel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
