@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
  
@@ -115,7 +116,7 @@ public class frmCatalogo extends javax.swing.JFrame {
         //Controlar cuando no hay datos que en vez de mostrarse
         //el formulario se muestre un joptionpane
 
-        frmCrearRecorrido r= new frmCrearRecorrido();
+        frmCrearRecorrido r= new frmCrearRecorrido(listRecorridos);
         r.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         r.setVisible(true);
     }//GEN-LAST:event_btnNuevoRecorridoMouseClicked
@@ -126,7 +127,9 @@ public class frmCatalogo extends javax.swing.JFrame {
 
     private void btnBorrar_click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBorrar_click
         try{
-            frmPrincipal.agencia.Ciudades.remove(listRecorridos.getSelectedIndex());
+
+            frmPrincipal.agencia.CatalogoInicial.Recorridos.remove(listRecorridos.getSelectedIndex());
+            listRecorridos.setListData(frmPrincipal.agencia.CatalogoInicial.Recorridos.toArray());
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Debe seleccionar una opcion","Borrar Recorrido",JOptionPane.INFORMATION_MESSAGE);
         }

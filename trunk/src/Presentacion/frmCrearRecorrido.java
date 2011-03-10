@@ -7,14 +7,18 @@ import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 
 public class frmCrearRecorrido extends javax.swing.JFrame {
 //
+    JList ListaReco;
     /** Creates new form frmCrearRecorrido */
-    public frmCrearRecorrido() {
+    public frmCrearRecorrido(JList listRecorridos)
+    {
         initComponents();
+        this.ListaReco=listRecorridos;
         this.setLocationRelativeTo(this);
         this.setBackground(Color.LIGHT_GRAY);
         this.setResizable(false);
@@ -219,7 +223,10 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
        try
        {
         Recorrido r=new Recorrido(frmPrincipal.agencia.Ciudades.get(cmbCiudadOrigen.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadDestino.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadDestino.getSelectedIndex()).Hoteles.get(cmbHotel.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadOrigen.getSelectedIndex()).Transportes.get(cmbTransIda.getSelectedIndex()),frmPrincipal.agencia.Ciudades.get(cmbCiudadDestino.getSelectedIndex()).Transportes.get(cmbTransVuelta.getSelectedIndex()),Double.parseDouble(txtPrecio.getText()));
-       frmPrincipal.agencia.CatalogoInicial.Recorridos.add(r);
+        frmPrincipal.agencia.CatalogoInicial.Recorridos.add(r);
+
+        ListaReco.setListData(frmPrincipal.agencia.CatalogoInicial.Recorridos.toArray());
+        dispose();
        }
        catch(Exception e)
        {
