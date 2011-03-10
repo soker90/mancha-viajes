@@ -73,7 +73,7 @@ public class frmCrearReserva extends javax.swing.JFrame {
     ChangeListener numPersonasAccion = new ChangeListener() {
 
         public void stateChanged(ChangeEvent e) {
-            txtTotal.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue()));
+            ActualizarPrecioTotal();
         }
     };
 
@@ -81,9 +81,19 @@ public class frmCrearReserva extends javax.swing.JFrame {
 
         public void actionPerformed(ActionEvent e) {
             txtPrecio.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()));
-            txtTotal.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue()));
+            ActualizarPrecioTotal();
         }
     };
+
+    public void ActualizarPrecioTotal()
+    {
+        try
+        {
+        txtTotal.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue()*Integer.parseInt(txtdias.getText())));
+        }catch(Exception e){
+            System.out.println(e.toString());
+        }
+    }
     public void ActualizarDias()
     {
         try {
@@ -93,6 +103,7 @@ public class frmCrearReserva extends javax.swing.JFrame {
             double Mstotal = f_fin.getTime() - finicio.getTime();
             int totaldias = (int) (((Mstotal/1000)/3600)/24) + 1;
             txtdias.setText(Integer.toString(totaldias));
+            ActualizarPrecioTotal();
         } catch (Exception e) {
             System.out.println(e.toString());
         }
@@ -276,8 +287,8 @@ public class frmCrearReserva extends javax.swing.JFrame {
                 Reserva nuevaR = new Reserva((Integer)jSpinnPersonas.getValue(), nuevo);
                 nuevaR.setFechaInicio(f_format.parse(txtFechaInicio.getText()));
                 nuevaR.setFechaFin(f_format.parse(txtFechaFin.getText()));
-                nuevaR.setImporteRestante(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
-                nuevaR.setImporteTotal(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
+                nuevaR.setImporteRestante(Double.parseDouble(txtTotal.getText()));
+                nuevaR.setImporteTotal(Double.parseDouble(txtTotal.getText()));
                 ReservasCliente.add(nuevaR);
                 listado_actual.setListData(ReservasCliente.toArray());
                 listado_actual.setSelectedIndex(ReservasCliente.size()-1);

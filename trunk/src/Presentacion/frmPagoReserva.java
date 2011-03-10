@@ -192,7 +192,7 @@ public class frmPagoReserva extends javax.swing.JFrame {
             Reserva.setImporteRestante(Double.parseDouble(txt_restante.getText()));
             frmpadre.refrescarjlist();
             dispose();
-            frmpadre.setEnabled(true);
+            //frmpadre.setEnabled(true);
         }catch(NumberFormatException nfe){
             JOptionPane.showMessageDialog(null, "El campo Importe pago cliente debe contener un valor numerico");
         }

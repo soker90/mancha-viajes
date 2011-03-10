@@ -82,11 +82,6 @@ public class frmReservas extends javax.swing.JFrame {
         });
 
         jlst_recorridos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jlst_recorridos.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jlst_recorridosValueChanged(evt);
-            }
-        });
         jScrollPane1.setViewportView(jlst_recorridos);
 
         btn_pagos.setText("Pagos");
@@ -135,16 +130,6 @@ public class frmReservas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jlst_recorridosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jlst_recorridosValueChanged
-        // TODO add your handling code here:
-        try{
-            if(ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).ImporteRestante==0)
-                btn_pagos.setEnabled(false);
-            else
-                btn_pagos.setEnabled(true);
-        }catch(ArrayIndexOutOfBoundsException aiobe){}
-    }//GEN-LAST:event_jlst_recorridosValueChanged
-
     private void btn_aceptarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_aceptarMouseClicked
         // TODO add your handling code here:
         dispose();
@@ -155,6 +140,10 @@ public class frmReservas extends javax.swing.JFrame {
         if(ClienteActual.getReservas().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "El cliente no tiene reservas", "Error", 0);
+        }
+        else if(ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).getImporteRestante()==0)
+        {
+            JOptionPane.showMessageDialog(null, "La reserva ya está pagada", "Infromación de reserva", 1);
         }
         else
         {
