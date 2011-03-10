@@ -157,7 +157,9 @@ public class frmTransyHotel extends javax.swing.JFrame {
             ed.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             ed.setVisible(true);
         }else{
-
+            frmEditarTransporte de = new frmEditarTransporte(numCiudad, listTransportes.getSelectedIndex());
+            de.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            de.setVisible(true);
         }
     }//GEN-LAST:event_btnEditarMouseClicked
 
