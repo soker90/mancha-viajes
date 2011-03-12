@@ -251,14 +251,16 @@ public class frmPrincipal extends JFrameImage {
 
     private void btn_VerCatalogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_VerCatalogoMouseClicked
         frmCatalogo c = new frmCatalogo();
+        c.setLocationRelativeTo(this);
         c.setVisible(true);
         c.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_btn_VerCatalogoMouseClicked
 
     private void btn_CiudadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CiudadesMouseClicked
         frmCiudades c = new frmCiudades();
-        c.setVisible(true);
+        c.setLocationRelativeTo(this);
         c.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        c.setVisible(true);
     }//GEN-LAST:event_btn_CiudadesMouseClicked
 
     /**

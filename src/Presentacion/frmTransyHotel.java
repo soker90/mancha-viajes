@@ -151,16 +151,18 @@ public class frmTransyHotel extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoMouseClicked
 
     private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
-        if(pnlPestañas.getSelectedIndex()==0)
-        {
-            frmEditarHotel ed = new frmEditarHotel(numCiudad, listHoteles.getSelectedIndex());
-            ed.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            ed.setVisible(true);
-        }else{
-            frmEditarTransporte de = new frmEditarTransporte(numCiudad, listTransportes.getSelectedIndex());
-            de.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            de.setVisible(true);
-        }
+        try{
+            if(pnlPestañas.getSelectedIndex()==0)
+            {
+                frmEditarHotel ed = new frmEditarHotel(numCiudad, listHoteles.getSelectedIndex());
+                ed.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                ed.setVisible(true);
+            }else{
+                frmEditarTransporte de = new frmEditarTransporte(numCiudad, listTransportes.getSelectedIndex());
+                de.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                de.setVisible(true);
+            }
+        }catch(Exception e){}
     }//GEN-LAST:event_btnEditarMouseClicked
 
     private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked

@@ -96,18 +96,18 @@ public class frmCiudades extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                    .addComponent(btnHotelyTrans, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnHotelyTrans, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(btnNuevo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBorrar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAtras)))
-                .addGap(20, 20, 20))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,9 +117,9 @@ public class frmCiudades extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
-                    .addComponent(btnAtras)
+                    .addComponent(btnEditar)
                     .addComponent(btnBorrar)
-                    .addComponent(btnEditar))
+                    .addComponent(btnAtras))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHotelyTrans)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -131,6 +131,7 @@ public class frmCiudades extends javax.swing.JFrame {
     private void NuevaCiudad(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevaCiudad
         frmCrearCiudad c = new frmCrearCiudad();
         c.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        c.setLocationRelativeTo(this);
         c.setVisible(true);
     }//GEN-LAST:event_NuevaCiudad
 
@@ -150,6 +151,7 @@ public class frmCiudades extends javax.swing.JFrame {
             int indice=listCiudades.getSelectedIndex();
             frmTransyHotel ht = new frmTransyHotel(indice);
             ht.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ht.setLocationRelativeTo(this);
             ht.setVisible(true);
         }catch(Exception ex){}
     }//GEN-LAST:event_btnHotelyTransMouseClicked
@@ -157,6 +159,7 @@ public class frmCiudades extends javax.swing.JFrame {
     private void btnEditarNuevaCiudad(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarNuevaCiudad
         frmEditarCiudad ed = new frmEditarCiudad(listCiudades.getSelectedIndex());
         ed.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        ed.setLocationRelativeTo(this);
         ed.setVisible(true);
     }//GEN-LAST:event_btnEditarNuevaCiudad
 
