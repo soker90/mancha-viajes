@@ -96,9 +96,9 @@ public class Sistema implements Serializable{
 
     public void crear_recorridos()
     {
-        CatalogoInicial.Recorridos.add(new Recorrido(new Ciudad("Madrid", 3216, "España"), new Ciudad("Barcelona", 9315, "España"), new Hotel("Grand Syrenis", 3, "C/buenavida", "987654321"), new Transporte("Tren", "20:30", "Madrid"), new Transporte("Avion", "11:35", "Barcelona"), 250.00));
-        CatalogoInicial.Recorridos.add(new Recorrido(new Ciudad("Sevilla", 9785, "España"), new Ciudad("Salamanca", 5421, "España"), new Hotel("Melia", 2, "C/Ezequiel III", "963541274"), new Transporte("Autobus", "21:30", "Sevilla"), new Transporte("Tren", "10:35", "Salamanca"), 180.00));
-        CatalogoInicial.Recorridos.add(new Recorrido(new Ciudad("Alcazar", 13600, "España"), new Ciudad("Aveiro", 1856, "Portugal"), new Hotel("Hotetur", 3, "C/Hipanema", "754236511"), new Transporte("Avion", "8:30", "Aveiro"), new Transporte("Tren", "10:35", "Alzazar"), 180.00));
+        CatalogoInicial.Recorridos.add(new Recorrido(new Ciudad("Madrid", 3216, "España"), new Ciudad("Barcelona", 9315, "España"), new Hotel("Grand Syrenis", 3, "C/buenavida", "987654321"), new Transporte("Tren", "20:30", 1), new Transporte("Avion", "11:35", 2), 250.00));
+        CatalogoInicial.Recorridos.add(new Recorrido(new Ciudad("Sevilla", 9785, "España"), new Ciudad("Salamanca", 5421, "España"), new Hotel("Melia", 2, "C/Ezequiel III", "963541274"), new Transporte("Autobus", "21:30", 0), new Transporte("Tren", "10:35", 1), 180.00));
+        CatalogoInicial.Recorridos.add(new Recorrido(new Ciudad("Alcazar", 13600, "España"), new Ciudad("Aveiro", 1856, "Portugal"), new Hotel("Hotetur", 3, "C/Hipanema", "754236511"), new Transporte("Avion", "8:30", 2), new Transporte("Tren", "10:35", 0), 180.00));
     }
 
 
