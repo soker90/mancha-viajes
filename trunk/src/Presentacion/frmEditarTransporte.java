@@ -26,7 +26,7 @@ public class frmEditarTransporte extends javax.swing.JFrame {
     public frmEditarTransporte(int codigo, int codTrans) {
         initComponents();
         NumCiudad=codigo;
-        setTitle("ManchaViajes: Nuevo Transporte");
+        setTitle("ManchaViajes: Editar Transporte");
         NumTransporte=codTrans;
         CargarDatos();
     }
@@ -55,7 +55,7 @@ public class frmEditarTransporte extends javax.swing.JFrame {
 
         jLabel2.setText("Ciudad de destino:");
 
-        btnCrear.setText("Crear");
+        btnCrear.setText("Aceptar");
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCrearMouseClicked(evt);
@@ -79,9 +79,9 @@ public class frmEditarTransporte extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                         .addGap(4, 4, 4))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -129,6 +129,10 @@ public class frmEditarTransporte extends javax.swing.JFrame {
         }
         else
         {
+            frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.get(NumTransporte).setTipo(txtTipo.getText());
+            frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.get(NumTransporte).setHora(txtHora.getText());
+            frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.get(NumTransporte).setCiudadDestino(cmbCiudades.getSelectedIndex());
+
             frmTransyHotel.listTransportes.setListData(frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.toArray());
             setVisible(false);
         }
@@ -143,6 +147,7 @@ public class frmEditarTransporte extends javax.swing.JFrame {
         boolean encontrado=false;
         txtTipo.setText(frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.get(NumTransporte).Tipo);
         txtHora.setText(frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.get(NumTransporte).Hora);
+        cmbCiudades.setSelectedIndex(frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.get(NumTransporte).IndiceCiudadDestino);
     }
     /**
     * @param args the command line arguments

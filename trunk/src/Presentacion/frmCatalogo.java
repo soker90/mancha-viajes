@@ -37,6 +37,7 @@ public class frmCatalogo extends javax.swing.JFrame {
         btnDetalles = new javax.swing.JButton();
         btnBorrarRecorrido = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        btnNuevoRecorrido1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +76,13 @@ public class frmCatalogo extends javax.swing.JFrame {
             }
         });
 
+        btnNuevoRecorrido1.setText("Nuevo (beta)");
+        btnNuevoRecorrido1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNuevoRecorrido1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,16 +91,18 @@ public class frmCatalogo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNuevoRecorrido)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBorrarRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btnNuevoRecorrido1)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnVolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btnNuevoRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnBorrarRecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,10 +112,12 @@ public class frmCatalogo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoRecorrido)
-                    .addComponent(btnBorrarRecorrido)
-                    .addComponent(btnDetalles))
+                    .addComponent(btnDetalles)
+                    .addComponent(btnBorrarRecorrido))
                 .addGap(18, 18, 18)
-                .addComponent(btnVolver)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevoRecorrido1)
+                    .addComponent(btnVolver))
                 .addContainerGap())
         );
 
@@ -118,6 +130,7 @@ public class frmCatalogo extends javax.swing.JFrame {
 
         frmCrearRecorrido r= new frmCrearRecorrido(listRecorridos);
         r.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        r.setLocationRelativeTo(this);
         r.setVisible(true);
     }//GEN-LAST:event_btnNuevoRecorridoMouseClicked
 
@@ -144,6 +157,13 @@ public class frmCatalogo extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Debe seleccionar una opcion","Detalles Recorrido",JOptionPane.INFORMATION_MESSAGE);
        }
     }//GEN-LAST:event_btnVer_click
+
+    private void btnNuevoRecorrido1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoRecorrido1MouseClicked
+        frmCrearRecorridoAlternativo r = new frmCrearRecorridoAlternativo();
+        r.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        r.setLocationRelativeTo(this);
+        r.setVisible(true);
+    }//GEN-LAST:event_btnNuevoRecorrido1MouseClicked
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -156,6 +176,7 @@ public class frmCatalogo extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrarRecorrido;
     private javax.swing.JButton btnDetalles;
     private javax.swing.JButton btnNuevoRecorrido;
+    private javax.swing.JButton btnNuevoRecorrido1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList listRecorridos;
