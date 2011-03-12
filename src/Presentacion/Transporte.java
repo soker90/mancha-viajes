@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Presentacion;
 
 import java.io.Serializable;
@@ -11,23 +10,24 @@ import java.io.Serializable;
  *
  * @author eduardoparra
  */
-public class Transporte implements Serializable{
+public class Transporte implements Serializable {
+
     String Tipo;
     String Hora;
-    String CiudadDestino;
+    int IndiceCiudadDestino;
 
-    public Transporte(String Tipo, String Hora, String CiudadDestino) {
+    public Transporte(String Tipo, String Hora, int IndiceCiudadDestino) {
         this.Tipo = Tipo;
         this.Hora = Hora;
-        this.CiudadDestino = CiudadDestino;
+        this.IndiceCiudadDestino = IndiceCiudadDestino;
     }
 
-    public String getCiudadDestino() {
-        return CiudadDestino;
+    public int getCiudadDestino() {
+        return IndiceCiudadDestino;
     }
 
-    public void setCiudadDestino(String CiudadDestino) {
-        this.CiudadDestino = CiudadDestino;
+    public void setCiudadDestino(int IndiceCiudadDestino) {
+        this.IndiceCiudadDestino = IndiceCiudadDestino;
     }
 
     public String getHora() {
@@ -48,10 +48,6 @@ public class Transporte implements Serializable{
 
     @Override
     public String toString() {
-        return Tipo +" a "+CiudadDestino+", "+Hora;
+        return Tipo + " a " + frmPrincipal.agencia.Ciudades.get(IndiceCiudadDestino).Nombre + ", " + Hora;
     }
-
-
-
-
 }

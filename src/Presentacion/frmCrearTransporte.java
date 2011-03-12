@@ -130,7 +130,7 @@ public class frmCrearTransporte extends javax.swing.JFrame {
         }
         else
         {
-            Transporte t = new Transporte(txtTipo.getText(),txtHora.getText(), cmbCiudades.getSelectedItem().toString());
+            Transporte t = new Transporte(txtTipo.getText(),txtHora.getText(), cmbCiudades.getSelectedIndex());
             frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.add(t);
             frmTransyHotel.listTransportes.setListData(frmPrincipal.agencia.Ciudades.get(NumCiudad).Transportes.toArray());
             setVisible(false);
