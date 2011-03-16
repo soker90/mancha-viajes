@@ -12,10 +12,12 @@
 package Presentacion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -30,43 +32,53 @@ public class frmEditarReserva extends javax.swing.JFrame {
     ArrayList<Recorrido> recorridos;
     ArrayList<Reserva> ReservasCliente;
     JList listado_actual;
+    int posicion;
     SimpleDateFormat f_format;
     /** Creates new form frmCrearReserva */
-    public frmEditarReserva(JList listado,ArrayList<Reserva> R) {
+    public frmEditarReserva(JList listado,ArrayList<Reserva> r,int pos) {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setTitle("Configurar Recorrido");
+        this.setTitle("Editar Recorrido");
         listado_actual=listado;
-        ReservasCliente=R;
+        ReservasCliente=r;
+        posicion=pos;
         recorridos=frmPrincipal.agencia.CatalogoInicial.Recorridos;
         initComponents();
         jcbRecorridosCatalogo.setModel(new DefaultComboBoxModel(recorridos.toArray()));
+        
 
         //Esto es para evitar que salte una excepcion cuando no hay datos de reservas
         try{
-            jcbRecorridosCatalogo.setSelectedIndex(0);
+            for (int i = 0; i < jcbRecorridosCatalogo.getModel().getSize(); i++)
+            if(jcbRecorridosCatalogo.getModel().getElementAt(i).toString().compareTo(ReservasCliente.get(posicion).getRecorrido().toString())==0)
+                jcbRecorridosCatalogo.setSelectedIndex(i);
         }catch(Exception ex){}
         
         f_format= new SimpleDateFormat("dd/MM/yyyy");
-        txtFechaFin.setText(f_format.format(new GregorianCalendar().getTime()));
-        jSpinnPersonas.setValue(1);
+        txtFechaInicio.setText(f_format.format(ReservasCliente.get(posicion).getFechaInicio()));
+        txtFechaFin.setText(f_format.format(ReservasCliente.get(posicion).getFechaFin()));
+        jSpinnPersonas.setValue(ReservasCliente.get(posicion).getNumPersona());
         jSpinnPersonas.addChangeListener(numPersonasAccion);
+        ActualizarDias();
+
 
         //Esto es para que no de fallo al iniciar
         try{
-            txtPrecio.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()));
-            txtTotal.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue()));
+            txtPrecio.setText(Double.toString(ReservasCliente.get(posicion).getRecorrido().getPrecio()));
+            ActualizarPrecioTotal();
         }catch(Exception e){
             txtPrecio.setText("0");
             txtTotal.setText("0");
         }
         
         jcbRecorridosCatalogo.addActionListener(jcbrecorridos_change);
+        txtFechaFin.addKeyListener(txt_check);
+        txtFechaInicio.addKeyListener(txt_check);
     }
 
     ChangeListener numPersonasAccion = new ChangeListener() {
 
         public void stateChanged(ChangeEvent e) {
-            txtTotal.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue()));
+            ActualizarPrecioTotal();
         }
     };
 
@@ -74,10 +86,48 @@ public class frmEditarReserva extends javax.swing.JFrame {
 
         public void actionPerformed(ActionEvent e) {
             txtPrecio.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()));
-            txtTotal.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue()));
+            ActualizarPrecioTotal();
         }
     };
 
+    public void ActualizarPrecioTotal()
+    {
+        try
+        {
+        txtTotal.setText(Double.toString(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue()*Integer.parseInt(txtdias.getText())));
+        }catch(Exception e){
+            System.out.println(e.toString());
+        }
+    }
+    public void ActualizarDias()
+    {
+        try {
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Date finicio = formato.parse(txtFechaInicio.getText());
+            Date f_fin = formato.parse(txtFechaFin.getText());
+            double Mstotal = f_fin.getTime() - finicio.getTime();
+            int totaldias = (int) (((Mstotal/1000)/3600)/24) + 1;
+            txtdias.setText(Integer.toString(totaldias));
+            ActualizarPrecioTotal();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+    
+    KeyListener txt_check = new KeyListener() {
+
+        public void keyTyped(KeyEvent e) {
+            ActualizarDias();
+        }
+
+        public void keyPressed(KeyEvent e) {
+            ActualizarDias();
+        }
+
+        public void keyReleased(KeyEvent e) {
+            ActualizarDias();
+        }
+    };
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -101,6 +151,8 @@ public class frmEditarReserva extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jSpinnPersonas = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
+        txtdias = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,6 +192,11 @@ public class frmEditarReserva extends javax.swing.JFrame {
 
         jLabel6.setText("Numero de personas");
 
+        txtdias.setEditable(false);
+        txtdias.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        jLabel7.setText("Numero de días");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,59 +205,77 @@ public class frmEditarReserva extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                        .addComponent(jcbRecorridosCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
-                        .addComponent(jSpinnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtFechaInicio)
-                            .addComponent(txtFechaFin)
-                            .addComponent(txtPrecio)
-                            .addComponent(txtTotal)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnConfirmar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelar)))))
+                                .addGap(80, 80, 80)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                    .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(txtdias, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                                .addComponent(jSpinnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcbRecorridosCatalogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtFechaInicio, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnConfirmar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnCancelar))
+                                .addComponent(txtFechaFin, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jcbRecorridosCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jcbRecorridosCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addGap(15, 15, 15)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSpinnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtdias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnConfirmar))
@@ -217,16 +292,23 @@ public class frmEditarReserva extends javax.swing.JFrame {
         }
         else
         {
-            Recorrido nuevo=frmPrincipal.agencia.CatalogoInicial.Recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).Clonar();
             try{
-                Reserva nuevaR = new Reserva((Integer)jSpinnPersonas.getValue(), nuevo);
-                nuevaR.setFechaInicio(f_format.parse(txtFechaInicio.getText()));
-                nuevaR.setFechaFin(f_format.parse(txtFechaFin.getText()));
-                nuevaR.setImporteRestante(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
-                nuevaR.setImporteTotal(recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).getPrecio()*(Integer)jSpinnPersonas.getValue());
-                ReservasCliente.add(nuevaR);
-                listado_actual.setListData(ReservasCliente.toArray());
-                listado_actual.setSelectedIndex(ReservasCliente.size()-1);
+                ReservasCliente.get(posicion).setRecorrido(frmPrincipal.agencia.CatalogoInicial.Recorridos.get(jcbRecorridosCatalogo.getSelectedIndex()).Clonar());
+                ReservasCliente.get(posicion).setNumPersona((Integer)jSpinnPersonas.getValue());
+                ReservasCliente.get(posicion).setFechaInicio(f_format.parse(txtFechaInicio.getText()));
+                ReservasCliente.get(posicion).setFechaFin(f_format.parse(txtFechaFin.getText()));
+                Double ImportePagado =ReservasCliente.get(posicion).getImporteTotal()-ReservasCliente.get(posicion).getImporteRestante();
+                Double ImporteRestante=Double.parseDouble(txtTotal.getText())-ImportePagado;
+                ReservasCliente.get(posicion).setImporteTotal(Double.parseDouble(txtTotal.getText()));
+                if(ImporteRestante<0)
+                {
+                    ReservasCliente.get(posicion).setImporteRestante(0.0);
+                    JOptionPane.showMessageDialog(null, "Importe de la devolucion: "+Math.abs(ImporteRestante), "Devolución al cliente", 1);
+                }
+                else
+                    ReservasCliente.get(posicion).setImporteRestante(ImporteRestante);
+                    listado_actual.setModel(new DefaultComboBoxModel(ReservasCliente.toArray()));
+                    listado_actual.setSelectedIndex(posicion);
                 dispose();
             }catch(ParseException pae){
                 JOptionPane.showMessageDialog(null, "Comprueba el formato de las fechas introducidas", "Error", 0);
@@ -250,12 +332,14 @@ public class frmEditarReserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JSpinner jSpinnPersonas;
     private javax.swing.JComboBox jcbRecorridosCatalogo;
     private javax.swing.JTextField txtFechaFin;
     private javax.swing.JTextField txtFechaInicio;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtTotal;
+    private javax.swing.JTextField txtdias;
     // End of variables declaration//GEN-END:variables
 
 }

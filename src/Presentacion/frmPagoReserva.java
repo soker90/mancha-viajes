@@ -38,7 +38,6 @@ public class frmPagoReserva extends javax.swing.JFrame {
         txt_pendiente.setText(Double.toString(pendiente_act));
         txt_pago.addKeyListener(txt_pago_accion);
         frmpadre=padre;
-        frmpadre.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
