@@ -281,9 +281,28 @@ public class frmCrearReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarMouseClicked
+        Date finicio= new Date();
+        Date f_fin = new Date();
+        try
+        {
+            finicio=f_format.parse(txtFechaInicio.getText());
+            f_fin=f_format.parse(txtFechaFin.getText());
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
         if(txtFechaInicio.getText().isEmpty() || txtFechaFin.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Todos los campos deben estar rellenos");
+        }
+        else if(finicio.before(new GregorianCalendar().getTime()))
+        {
+            JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser posterior o igual a la fecha actual", "Error", 0);
+        }
+        else if(f_fin.before(finicio) || f_fin.compareTo(finicio)==0)
+        {
+            JOptionPane.showMessageDialog(null, "La fecha de fin debe ser posterior a la fecha de inicio", "Error", 0);
         }
         else
         {

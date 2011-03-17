@@ -175,8 +175,8 @@ public class frmPrincipal extends JFrameImage {
         catch(FileNotFoundException fne)
         {
             //SI EL FICHERO NO EXISTE LO CREAMOS
-//            ObjectOutputStream objout = new ObjectOutputStream(new FileOutputStream("datos.dat"));
-//            objout.close();
+            ObjectOutputStream objout = new ObjectOutputStream(new FileOutputStream("datos.dat"));
+            objout.close();
         }
     }
 
