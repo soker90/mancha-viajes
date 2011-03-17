@@ -151,7 +151,10 @@ public class frmCatalogo extends javax.swing.JFrame {
     private void btnVer_click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVer_click
        try
        {
-
+           frmDetallesRecorrido Detalles=new frmDetallesRecorrido(listRecorridos.getSelectedIndex());
+           Detalles.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+           Detalles.setLocationRelativeTo(this);
+           Detalles.setVisible(true);
        }catch(Exception e)
        {
            JOptionPane.showMessageDialog(null,"Debe seleccionar una opcion","Detalles Recorrido",JOptionPane.INFORMATION_MESSAGE);
