@@ -11,10 +11,6 @@
 
 package Presentacion;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -57,6 +53,7 @@ public class frmCrearTransporte extends javax.swing.JFrame {
         jLabel2.setText("Ciudad de destino:");
 
         btnCrear.setText("Crear");
+        btnCrear.setToolTipText("Crear Transporte");
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCrearMouseClicked(evt);
@@ -64,6 +61,7 @@ public class frmCrearTransporte extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarMouseClicked(evt);
@@ -80,9 +78,9 @@ public class frmCrearTransporte extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                         .addGap(4, 4, 4))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -90,9 +88,9 @@ public class frmCrearTransporte extends javax.swing.JFrame {
                         .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancelar))
-                    .addComponent(txtTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(txtHora, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(cmbCiudades, 0, 167, Short.MAX_VALUE))
+                    .addComponent(txtTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(txtHora, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(cmbCiudades, 0, 174, Short.MAX_VALUE))
                 .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(

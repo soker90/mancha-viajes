@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
@@ -46,7 +47,7 @@ public class frmPrincipal extends JFrameImage {
         setImage("/Recursos/Portada.png");
         jButton6.setText("Salir");
         jButton6.setActionCommand("Salir");
-        
+        ComprabarRecorridosPagados();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -61,9 +62,10 @@ public class frmPrincipal extends JFrameImage {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_Ciudades.setBackground(new java.awt.Color(60, 150, 97));
-        btn_Ciudades.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
+        btn_Ciudades.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         btn_Ciudades.setForeground(new java.awt.Color(255, 255, 255));
         btn_Ciudades.setText("Ciudades");
+        btn_Ciudades.setToolTipText("Ver Ciudades");
         btn_Ciudades.setName("btnCiudades"); // NOI18N
         btn_Ciudades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -72,9 +74,10 @@ public class frmPrincipal extends JFrameImage {
         });
 
         btnLimpiarRecorridos.setBackground(new java.awt.Color(60, 150, 97));
-        btnLimpiarRecorridos.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
+        btnLimpiarRecorridos.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         btnLimpiarRecorridos.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarRecorridos.setText("Limpiar Recorridos Finalizados");
+        btnLimpiarRecorridos.setToolTipText("Limpiar Recorridos Finalizados");
         btnLimpiarRecorridos.setName("btnNuevoHotel"); // NOI18N
         btnLimpiarRecorridos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,9 +86,10 @@ public class frmPrincipal extends JFrameImage {
         });
 
         btn_Clientes.setBackground(new java.awt.Color(60, 150, 97));
-        btn_Clientes.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
+        btn_Clientes.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         btn_Clientes.setForeground(new java.awt.Color(255, 255, 255));
         btn_Clientes.setText("Clientes");
+        btn_Clientes.setToolTipText("Ver Ciudades");
         btn_Clientes.setName("btnClientes"); // NOI18N
         btn_Clientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,9 +98,10 @@ public class frmPrincipal extends JFrameImage {
         });
 
         btn_VerCatalogo.setBackground(new java.awt.Color(60, 150, 97));
-        btn_VerCatalogo.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
+        btn_VerCatalogo.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         btn_VerCatalogo.setForeground(new java.awt.Color(255, 255, 255));
-        btn_VerCatalogo.setText("Ver Catálogo");
+        btn_VerCatalogo.setText("Catálogo");
+        btn_VerCatalogo.setToolTipText("Ver Catálogo");
         btn_VerCatalogo.setName("btnVerCatalago"); // NOI18N
         btn_VerCatalogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,6 +110,7 @@ public class frmPrincipal extends JFrameImage {
         });
 
         jButton6.setText("Salir");
+        jButton6.setToolTipText("Salir");
         jButton6.setName("btnSalir"); // NOI18N
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -263,9 +269,29 @@ public class frmPrincipal extends JFrameImage {
         c.setVisible(true);
     }//GEN-LAST:event_btn_CiudadesMouseClicked
 
-    /**
-    * @param args the command line arguments
-    */
+     public final void ComprabarRecorridosPagados()
+    {
+        boolean mostrar = false;
+        ArrayList<Cliente> moroso = new ArrayList<Cliente>();
+        for (int i= 0; i < agencia.Clientes.size(); i++) {
+            for (int j= 0; j < agencia.Clientes.get(i).Reservas.size(); j++) {
+                if(agencia.Clientes.get(i).Reservas.get(j).FechaInicio.compareTo(new Date())==0)
+                {
+                    moroso.add(agencia.Clientes.get(i));
+                    mostrar=true;
+                }
+            }
+        }
+
+        if(mostrar)
+        {
+            frmMorosos m = new frmMorosos(moroso);
+            m.setLocationRelativeTo(this);
+            m.setVisible(true);
+            m.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }
+    }
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

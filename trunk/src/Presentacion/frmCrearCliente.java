@@ -74,6 +74,7 @@ public class frmCrearCliente extends javax.swing.JFrame {
         jLabel6.setText("Telefono");
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.setToolTipText("Cancelar");
         btn_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cancelar_clic(evt);
@@ -81,6 +82,7 @@ public class frmCrearCliente extends javax.swing.JFrame {
         });
 
         btn_crear.setText("Crear");
+        btn_crear.setToolTipText("Crear Cliente");
         btn_crear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_crearMouseClicked(evt);
@@ -88,14 +90,14 @@ public class frmCrearCliente extends javax.swing.JFrame {
         });
 
         lblcperror.setBackground(new java.awt.Color(255, 0, 20));
-        lblcperror.setFont(new java.awt.Font("Comic Sans MS", 0, 10)); // NOI18N
+        lblcperror.setFont(new java.awt.Font("Comic Sans MS", 0, 10));
         lblcperror.setForeground(new java.awt.Color(255, 0, 0));
         lblcperror.setText("Codigo postal incorrecto");
         lblcperror.setAlignmentY(0.0F);
         lblcperror.setFocusable(false);
 
         lblTelError.setBackground(new java.awt.Color(255, 0, 20));
-        lblTelError.setFont(new java.awt.Font("Comic Sans MS", 0, 10)); // NOI18N
+        lblTelError.setFont(new java.awt.Font("Comic Sans MS", 0, 10));
         lblTelError.setForeground(new java.awt.Color(255, 0, 0));
         lblTelError.setText("Teléfono erróneo");
         lblTelError.setAlignmentY(0.0F);

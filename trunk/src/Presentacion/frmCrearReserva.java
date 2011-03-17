@@ -19,8 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -172,6 +170,7 @@ public class frmCrearReserva extends javax.swing.JFrame {
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.setToolTipText("Confirmar");
         btnConfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnConfirmarMouseClicked(evt);
@@ -179,6 +178,7 @@ public class frmCrearReserva extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarMouseClicked(evt);
@@ -210,20 +210,20 @@ public class frmCrearReserva extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(80, 80, 80)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                    .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)))
+                                    .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                    .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(txtdias, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                                .addComponent(txtdias, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                                 .addComponent(jSpinnPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jcbRecorridosCatalogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

@@ -170,7 +170,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAtras">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Atr&#xe1;s"/>
+        <Property name="text" type="java.lang.String" value="Cerrar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Volver Atras"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAtras_click"/>

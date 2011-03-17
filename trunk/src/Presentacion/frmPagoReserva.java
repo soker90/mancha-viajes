@@ -14,8 +14,6 @@ package Presentacion;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,6 +92,7 @@ public class frmPagoReserva extends javax.swing.JFrame {
         lbl_importetotal5.setText("€");
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.setToolTipText("Cancelar");
         btn_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cancelar_clic(evt);
@@ -101,6 +100,7 @@ public class frmPagoReserva extends javax.swing.JFrame {
         });
 
         btn_confirmar.setText("Confirmar");
+        btn_confirmar.setToolTipText("Confirmar");
         btn_confirmar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_confirmar_clic(evt);
@@ -137,9 +137,9 @@ public class frmPagoReserva extends javax.swing.JFrame {
                         .addComponent(txt_restante, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl_importetotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
+                .addContainerGap(242, Short.MAX_VALUE)
                 .addComponent(btn_confirmar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_cancelar)

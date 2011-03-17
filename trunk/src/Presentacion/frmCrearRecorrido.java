@@ -103,6 +103,7 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
         jLabel6.setText("Precio");
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.setToolTipText("Cancelar");
         btn_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelar_click(evt);
@@ -110,6 +111,7 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
         });
 
         btnCrear.setText("Crear");
+        btnCrear.setToolTipText("Crear Recorrido");
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCrear_click(evt);
@@ -123,13 +125,13 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(cmbCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-            .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
-            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+            .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
@@ -140,12 +142,12 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbCiudadOrigen, 0, 212, Short.MAX_VALUE)
+                .addComponent(cmbCiudadOrigen, 0, 223, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(cmbTransIda, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -159,7 +161,7 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbTransVuelta, javax.swing.GroupLayout.Alignment.LEADING, 0, 196, Short.MAX_VALUE))))
@@ -239,8 +241,6 @@ public class frmCrearRecorrido extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelar_click
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JComboBox cmbCiudadDestino;

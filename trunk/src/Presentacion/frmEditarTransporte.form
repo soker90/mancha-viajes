@@ -23,25 +23,30 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel3" pref="131" max="32767" attributes="0"/>
-                      <EmptySpace min="4" pref="4" max="4" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel3" pref="131" max="32767" attributes="0"/>
+                              <EmptySpace min="4" pref="4" max="4" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel2" alignment="0" pref="135" max="32767" attributes="1"/>
+                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txtTipo" pref="174" max="32767" attributes="1"/>
+                          <Component id="txtHora" alignment="1" pref="174" max="32767" attributes="1"/>
+                          <Component id="cmbCiudades" pref="174" max="32767" attributes="1"/>
+                      </Group>
                   </Group>
-                  <Component id="jLabel2" alignment="0" pref="135" max="32767" attributes="1"/>
-                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnCrear" min="-2" pref="75" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnCrear" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="txtTipo" pref="167" max="32767" attributes="1"/>
-                  <Component id="txtHora" alignment="1" pref="167" max="32767" attributes="1"/>
-                  <Component id="cmbCiudades" pref="167" max="32767" attributes="1"/>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
@@ -107,6 +112,7 @@
     <Component class="javax.swing.JButton" name="btnCrear">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Aceptar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCrearMouseClicked"/>
@@ -115,6 +121,7 @@
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCancelarMouseClicked"/>

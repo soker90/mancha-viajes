@@ -177,6 +177,7 @@ public class frmEditarReserva extends javax.swing.JFrame {
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btnConfirmar.setText("Confirmar");
+        btnConfirmar.setToolTipText("Confirmar");
         btnConfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnConfirmarMouseClicked(evt);
@@ -228,7 +229,7 @@ public class frmEditarReserva extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jcbRecorridosCatalogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

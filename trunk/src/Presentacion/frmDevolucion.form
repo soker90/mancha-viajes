@@ -139,6 +139,7 @@
     <Component class="javax.swing.JButton" name="btnImprimir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Imprimir Factura"/>
+        <Property name="toolTipText" type="java.lang.String" value="Imprimir Factura"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnImprimirMouseClicked"/>
@@ -147,6 +148,7 @@
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCancelarMouseClicked"/>

@@ -25,14 +25,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" pref="137" max="-2" attributes="0"/>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
               <Component id="cmbCiudadDestino" min="-2" pref="198" max="-2" attributes="1"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
-          <Component id="jSeparator1" alignment="0" pref="410" max="32767" attributes="1"/>
-          <Component id="jSeparator2" alignment="0" pref="410" max="32767" attributes="1"/>
-          <Component id="jSeparator3" alignment="0" pref="410" max="32767" attributes="1"/>
-          <Component id="jSeparator4" alignment="1" pref="410" max="32767" attributes="1"/>
+          <Component id="jSeparator1" alignment="0" pref="431" max="32767" attributes="1"/>
+          <Component id="jSeparator2" alignment="0" pref="431" max="32767" attributes="1"/>
+          <Component id="jSeparator3" alignment="0" pref="431" max="32767" attributes="1"/>
+          <Component id="jSeparator4" alignment="1" pref="431" max="32767" attributes="1"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -44,13 +44,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="158" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="cmbCiudadOrigen" pref="212" max="32767" attributes="1"/>
+              <Component id="cmbCiudadOrigen" pref="223" max="32767" attributes="1"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="131" max="-2" attributes="0"/>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
               <Component id="cmbTransIda" min="-2" pref="198" max="-2" attributes="1"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
@@ -67,7 +67,7 @@
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="57" max="32767" attributes="0"/>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="txtPrecio" alignment="0" max="32767" attributes="1"/>
                           <Component id="cmbTransVuelta" alignment="0" pref="196" max="32767" attributes="1"/>
@@ -247,6 +247,7 @@
     <Component class="javax.swing.JButton" name="btn_cancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCancelar_click"/>
@@ -255,6 +256,7 @@
     <Component class="javax.swing.JButton" name="btnCrear">
       <Properties>
         <Property name="text" type="java.lang.String" value="Crear"/>
+        <Property name="toolTipText" type="java.lang.String" value="Crear Recorrido"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCrear_click"/>

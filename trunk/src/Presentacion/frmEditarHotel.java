@@ -66,6 +66,7 @@ public class frmEditarHotel extends javax.swing.JFrame {
         jLabel4.setText("Teléfono:");
 
         btnCrear.setText("Aceptar");
+        btnCrear.setToolTipText("Aceptar");
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCrearMouseClicked(evt);
@@ -73,6 +74,7 @@ public class frmEditarHotel extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarMouseClicked(evt);
@@ -116,8 +118,8 @@ public class frmEditarHotel extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnCancelar))
                             .addComponent(lblTelError))))

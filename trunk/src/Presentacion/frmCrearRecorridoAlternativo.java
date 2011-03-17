@@ -11,8 +11,6 @@
 
 package Presentacion;
 
-import java.awt.Dimension;
-import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -82,8 +80,10 @@ public class frmCrearRecorridoAlternativo extends javax.swing.JFrame {
         jScrollPane2.setViewportView(listCiudadesSeleccionadas);
 
         jButton1.setText("Λ");
+        jButton1.setToolTipText("Quitar Ciudad");
 
         jButton2.setText("V");
+        jButton2.setToolTipText("Añadir Ciudad");
 
         jLabel1.setText("Disponibles:");
 
@@ -94,8 +94,10 @@ public class frmCrearRecorridoAlternativo extends javax.swing.JFrame {
         jLabel4.setText("Hoteles:");
 
         jButton3.setText("V");
+        jButton3.setToolTipText("Añadir Hotel");
 
         jButton4.setText("Λ");
+        jButton4.setToolTipText("Quitar Hotel");
 
         listHoteles.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -107,8 +109,10 @@ public class frmCrearRecorridoAlternativo extends javax.swing.JFrame {
         jLabel5.setText("Transportes:");
 
         jButton5.setText("V");
+        jButton5.setToolTipText("Añadir Transporte");
 
         jButton6.setText("Λ");
+        jButton6.setToolTipText("Quitar Transporte");
 
         listTransportes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -118,8 +122,10 @@ public class frmCrearRecorridoAlternativo extends javax.swing.JFrame {
         jScrollPane5.setViewportView(listTransportes);
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Aceptar");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarMouseClicked(evt);

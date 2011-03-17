@@ -55,6 +55,7 @@ public class frmClientes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jlst_client);
 
         btn_aceptar.setText("Aceptar");
+        btn_aceptar.setToolTipText("Aceptar");
         btn_aceptar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_aceptar_clic(evt);
@@ -62,6 +63,7 @@ public class frmClientes extends javax.swing.JFrame {
         });
 
         btn_nuevo.setText("Nuevo Cliente");
+        btn_nuevo.setToolTipText("Nuevo Cliente");
         btn_nuevo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_nuevo_clic(evt);
@@ -69,6 +71,7 @@ public class frmClientes extends javax.swing.JFrame {
         });
 
         btn_recorridos.setText("Reservas");
+        btn_recorridos.setToolTipText("Reservas de Cliente");
         btn_recorridos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_recorridos_clic(evt);
@@ -76,6 +79,7 @@ public class frmClientes extends javax.swing.JFrame {
         });
 
         btn_sit_client.setText("Situacion Cliente");
+        btn_sit_client.setToolTipText("Ver Situacion del Cliente");
         btn_sit_client.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_sit_client_clic(evt);
@@ -83,6 +87,7 @@ public class frmClientes extends javax.swing.JFrame {
         });
 
         btn_editar.setText("Editar Cliente");
+        btn_editar.setToolTipText("Editar Cliente");
         btn_editar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_editar_clic(evt);

@@ -11,7 +11,6 @@
 
 package Presentacion;
 
-import java.util.ArrayList;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -78,6 +77,7 @@ public class frmEditarCliente extends javax.swing.JFrame {
         jLabel6.setText("Telefono");
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.setToolTipText("Cancelar");
         btn_cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_cancelar_clic(evt);
@@ -85,6 +85,7 @@ public class frmEditarCliente extends javax.swing.JFrame {
         });
 
         btn_crear.setText("Aceptar");
+        btn_crear.setToolTipText("Aceptar");
         btn_crear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_crearMouseClicked(evt);

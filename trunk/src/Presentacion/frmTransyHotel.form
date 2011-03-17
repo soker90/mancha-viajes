@@ -25,7 +25,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pnlPestañas" pref="314" max="32767" attributes="0"/>
+                  <Component id="pnlPestañas" pref="393" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnNuevo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -134,6 +134,7 @@
     <Component class="javax.swing.JButton" name="btnNuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
+        <Property name="toolTipText" type="java.lang.String" value="Nuevo Hotel"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnNuevoMouseClicked"/>
@@ -142,6 +143,7 @@
     <Component class="javax.swing.JButton" name="btnEditar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Editar Hotel"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEditarMouseClicked"/>
@@ -150,6 +152,7 @@
     <Component class="javax.swing.JButton" name="btnCerrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cerrar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cerrar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCerrarMouseClicked"/>
@@ -158,6 +161,7 @@
     <Component class="javax.swing.JButton" name="btnBorrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Borrar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Borrar Hotel"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBorrarMouseClicked"/>

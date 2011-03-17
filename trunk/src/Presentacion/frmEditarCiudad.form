@@ -31,9 +31,9 @@
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtPais" alignment="0" pref="191" max="32767" attributes="1"/>
-                  <Component id="txtCodigoPostal" alignment="0" pref="191" max="32767" attributes="0"/>
-                  <Component id="txtNombre" alignment="0" pref="191" max="32767" attributes="1"/>
+                  <Component id="txtPais" alignment="0" pref="196" max="32767" attributes="1"/>
+                  <Component id="txtCodigoPostal" alignment="0" pref="196" max="32767" attributes="0"/>
+                  <Component id="txtNombre" alignment="0" pref="196" max="32767" attributes="1"/>
                   <Component id="lblcperror" alignment="0" min="-2" pref="124" max="-2" attributes="1"/>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -102,6 +102,7 @@
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CerrarFormulario"/>
@@ -110,6 +111,7 @@
     <Component class="javax.swing.JButton" name="btnAceptar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Aceptar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAceptarMouseClicked"/>

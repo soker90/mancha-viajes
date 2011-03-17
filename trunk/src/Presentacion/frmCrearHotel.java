@@ -63,6 +63,7 @@ public class frmCrearHotel extends javax.swing.JFrame {
         jLabel4.setText("Teléfono:");
 
         btnCrear.setText("Crear");
+        btnCrear.setToolTipText("Crear Hotel");
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCrearMouseClicked(evt);
@@ -70,6 +71,7 @@ public class frmCrearHotel extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarMouseClicked(evt);
@@ -83,7 +85,7 @@ public class frmCrearHotel extends javax.swing.JFrame {
         lblerror.setFocusable(false);
 
         lblTelError.setBackground(new java.awt.Color(255, 0, 20));
-        lblTelError.setFont(new java.awt.Font("Comic Sans MS", 0, 10)); // NOI18N
+        lblTelError.setFont(new java.awt.Font("Comic Sans MS", 0, 10));
         lblTelError.setForeground(new java.awt.Color(255, 0, 0));
         lblTelError.setText("Teléfono erróneo");
         lblTelError.setAlignmentY(0.0F);
