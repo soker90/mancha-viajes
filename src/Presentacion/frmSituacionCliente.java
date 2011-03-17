@@ -11,8 +11,6 @@
 
 package Presentacion;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
 import javax.swing.JFrame;
 
 
@@ -82,6 +80,7 @@ public class frmSituacionCliente extends javax.swing.JFrame {
         txtTel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Aceptar");
         btnAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAceptarMouseClicked(evt);
@@ -94,6 +93,7 @@ public class frmSituacionCliente extends javax.swing.JFrame {
         txtDireccion.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btnAnular.setText("Anular");
+        btnAnular.setToolTipText("Anular Reserva");
         btnAnular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAnularMouseClicked(evt);
@@ -117,14 +117,14 @@ public class frmSituacionCliente extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAnular, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                .addComponent(btnAnular, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAceptar))
-                            .addComponent(txtTel, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(txtHotel, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(txtCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                            .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))))
+                            .addComponent(txtTel, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(txtHotel, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(txtCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

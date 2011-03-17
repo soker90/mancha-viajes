@@ -5,9 +5,6 @@ package Presentacion;
 
 import java.awt.Color;
 import java.awt.Cursor;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 
  
@@ -49,6 +46,7 @@ public class frmCatalogo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listRecorridos);
 
         btnNuevoRecorrido.setText("Nuevo");
+        btnNuevoRecorrido.setToolTipText("Nuevo Recorrido");
         btnNuevoRecorrido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNuevoRecorridoMouseClicked(evt);
@@ -56,6 +54,7 @@ public class frmCatalogo extends javax.swing.JFrame {
         });
 
         btnDetalles.setText("Ver");
+        btnDetalles.setToolTipText("Ver Recorrido");
         btnDetalles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnVer_click(evt);
@@ -63,6 +62,7 @@ public class frmCatalogo extends javax.swing.JFrame {
         });
 
         btnBorrarRecorrido.setText("Borrar");
+        btnBorrarRecorrido.setToolTipText("Borrar Recorrido");
         btnBorrarRecorrido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBorrar_click(evt);
@@ -70,6 +70,7 @@ public class frmCatalogo extends javax.swing.JFrame {
         });
 
         btnVolver.setText("Volver");
+        btnVolver.setToolTipText("Volver Atras");
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnVolver_click(evt);
@@ -77,6 +78,7 @@ public class frmCatalogo extends javax.swing.JFrame {
         });
 
         btnNuevoRecorrido1.setText("Nuevo (beta)");
+        btnNuevoRecorrido1.setToolTipText("Nuevo Recorrido (Experimental)");
         btnNuevoRecorrido1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNuevoRecorrido1MouseClicked(evt);
@@ -167,13 +169,6 @@ public class frmCatalogo extends javax.swing.JFrame {
         r.setLocationRelativeTo(this);
         r.setVisible(true);
     }//GEN-LAST:event_btnNuevoRecorrido1MouseClicked
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmCatalogo().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrarRecorrido;

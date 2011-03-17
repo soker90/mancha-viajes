@@ -11,15 +11,7 @@
 
 package Presentacion;
 
-import Presentacion.Sistema;
-import Presentacion.Ciudad;
-import Presentacion.Ciudad;
-import Presentacion.Sistema;
-import java.awt.Label;
 import java.util.ArrayList;
-import javax.swing.AbstractListModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -65,6 +57,7 @@ public class frmCrearCiudad extends javax.swing.JFrame {
         jLabel3.setText("País:");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CerrarFormulario(evt);
@@ -72,6 +65,7 @@ public class frmCrearCiudad extends javax.swing.JFrame {
         });
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Aceptar");
         btnAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAceptarMouseClicked(evt);
@@ -96,13 +90,13 @@ public class frmCrearCiudad extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPais, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                    .addComponent(txtCodigoPostal, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .addComponent(txtPais, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                    .addComponent(txtCodigoPostal, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                     .addComponent(lblcperror, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(189, Short.MAX_VALUE)
+                .addContainerGap(194, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCancelar)

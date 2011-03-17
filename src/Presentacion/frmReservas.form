@@ -29,8 +29,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btn_pagos" min="-2" pref="81" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnEditar" pref="68" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnEditar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btn_nuevo" min="-2" pref="97" max="-2" attributes="0"/>
@@ -74,6 +74,7 @@
     <Component class="javax.swing.JButton" name="btn_nuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
+        <Property name="toolTipText" type="java.lang.String" value="Nueva Reserva"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_nuevo_clic"/>
@@ -82,6 +83,7 @@
     <Component class="javax.swing.JButton" name="btn_anular">
       <Properties>
         <Property name="text" type="java.lang.String" value="Anular"/>
+        <Property name="toolTipText" type="java.lang.String" value="Anular Reserva"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_anularMouseClicked"/>
@@ -90,6 +92,7 @@
     <Component class="javax.swing.JButton" name="btn_aceptar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Aceptar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_aceptarMouseClicked"/>
@@ -115,6 +118,7 @@
     <Component class="javax.swing.JButton" name="btn_pagos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pagos"/>
+        <Property name="toolTipText" type="java.lang.String" value="Pagos de la Reserva"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_pagosMouseClicked"/>
@@ -123,6 +127,7 @@
     <Component class="javax.swing.JButton" name="btnEditar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Editar Reserva"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEditarMouseClicked"/>

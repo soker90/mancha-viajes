@@ -65,7 +65,8 @@ public class frmDetallesRecorrido extends javax.swing.JFrame
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel6.setText("Precio");
 
-        btnAtras.setText("Atrás");
+        btnAtras.setText("Cerrar");
+        btnAtras.setToolTipText("Volver Atras");
         btnAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAtras_click(evt);
@@ -147,13 +148,6 @@ public class frmDetallesRecorrido extends javax.swing.JFrame
     private void btnAtras_click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtras_click
         this.dispose();
     }//GEN-LAST:event_btnAtras_click
-    /*public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmDetallesRecorrido().setVisible(true);
-            }
-        });
-    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;

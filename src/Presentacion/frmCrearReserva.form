@@ -57,7 +57,7 @@
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <EmptySpace pref="102" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jcbRecorridosCatalogo" alignment="1" min="-2" pref="207" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
@@ -186,6 +186,7 @@
     <Component class="javax.swing.JButton" name="btnConfirmar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirmar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfirmarMouseClicked"/>
@@ -194,6 +195,7 @@
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCancelarMouseClicked"/>

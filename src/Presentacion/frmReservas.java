@@ -63,6 +63,7 @@ public class frmReservas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_nuevo.setText("Nuevo");
+        btn_nuevo.setToolTipText("Nueva Reserva");
         btn_nuevo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_nuevo_clic(evt);
@@ -70,6 +71,7 @@ public class frmReservas extends javax.swing.JFrame {
         });
 
         btn_anular.setText("Anular");
+        btn_anular.setToolTipText("Anular Reserva");
         btn_anular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_anularMouseClicked(evt);
@@ -77,6 +79,7 @@ public class frmReservas extends javax.swing.JFrame {
         });
 
         btn_aceptar.setText("Aceptar");
+        btn_aceptar.setToolTipText("Aceptar");
         btn_aceptar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_aceptarMouseClicked(evt);
@@ -87,6 +90,7 @@ public class frmReservas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jlst_recorridos);
 
         btn_pagos.setText("Pagos");
+        btn_pagos.setToolTipText("Pagos de la Reserva");
         btn_pagos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_pagosMouseClicked(evt);
@@ -94,6 +98,7 @@ public class frmReservas extends javax.swing.JFrame {
         });
 
         btnEditar.setText("Editar");
+        btnEditar.setToolTipText("Editar Reserva");
         btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEditarMouseClicked(evt);
@@ -111,8 +116,8 @@ public class frmReservas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_pagos, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)

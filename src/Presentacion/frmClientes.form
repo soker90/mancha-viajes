@@ -81,6 +81,7 @@
     <Component class="javax.swing.JButton" name="btn_aceptar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Aceptar"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_aceptar_clic"/>
@@ -89,6 +90,7 @@
     <Component class="javax.swing.JButton" name="btn_nuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo Cliente"/>
+        <Property name="toolTipText" type="java.lang.String" value="Nuevo Cliente"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_nuevo_clic"/>
@@ -97,6 +99,7 @@
     <Component class="javax.swing.JButton" name="btn_recorridos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reservas"/>
+        <Property name="toolTipText" type="java.lang.String" value="Reservas de Cliente"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_recorridos_clic"/>
@@ -105,6 +108,7 @@
     <Component class="javax.swing.JButton" name="btn_sit_client">
       <Properties>
         <Property name="text" type="java.lang.String" value="Situacion Cliente"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ver Situacion del Cliente"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_sit_client_clic"/>
@@ -113,6 +117,7 @@
     <Component class="javax.swing.JButton" name="btn_editar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar Cliente"/>
+        <Property name="toolTipText" type="java.lang.String" value="Editar Cliente"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_editar_clic"/>

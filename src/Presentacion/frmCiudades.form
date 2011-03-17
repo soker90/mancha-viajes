@@ -64,6 +64,7 @@
     <Component class="javax.swing.JButton" name="btnNuevo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nueva"/>
+        <Property name="toolTipText" type="java.lang.String" value="Nueva Ciudad"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="NuevaCiudad"/>
@@ -72,6 +73,7 @@
     <Component class="javax.swing.JButton" name="btnBorrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Borrar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Borrar Ciudad"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBorrarMouseClicked"/>
@@ -80,6 +82,7 @@
     <Component class="javax.swing.JButton" name="btnHotelyTrans">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Hoteles &#xa;y Transportes" noResource="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ver Hoteles  y Transportes de la Ciudad"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnHotelyTransMouseClicked"/>
@@ -88,6 +91,7 @@
     <Component class="javax.swing.JButton" name="btnAtras">
       <Properties>
         <Property name="text" type="java.lang.String" value="Volver"/>
+        <Property name="toolTipText" type="java.lang.String" value="Volver Atras"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAtrasMouseClicked"/>
@@ -121,6 +125,7 @@
     <Component class="javax.swing.JButton" name="btnEditar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Editar Ciudad"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEditarNuevaCiudad"/>

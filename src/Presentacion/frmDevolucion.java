@@ -96,6 +96,7 @@ public class frmDevolucion extends javax.swing.JFrame {
         txtPorcentajeNoRealizado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btnImprimir.setText("Imprimir Factura");
+        btnImprimir.setToolTipText("Imprimir Factura");
         btnImprimir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnImprimirMouseClicked(evt);
@@ -103,6 +104,7 @@ public class frmDevolucion extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelarMouseClicked(evt);
