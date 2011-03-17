@@ -11,6 +11,7 @@
 
 package Presentacion;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.JFrame;
@@ -208,10 +209,20 @@ public class frmReservas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay recorridos", "Error", 0);
         else
         {
-            frmEditarReserva formuEdit = new frmEditarReserva(jlst_recorridos, ClienteActual.getReservas(),jlst_recorridos.getSelectedIndex());
-            formuEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            formuEdit.setLocationRelativeTo(this);
-            formuEdit.setVisible(true);
+            int posicion=-1;
+            SimpleDateFormat f_format= new SimpleDateFormat("dd/MM/yyyy");
+            Date factual = new GregorianCalendar().getTime();
+            Date finicio=ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).getFechaInicio();
+            Date f_fin=ClienteActual.getReservas().get(jlst_recorridos.getSelectedIndex()).getFechaFin();
+            if(finicio.before(factual)&&f_fin.after(factual) || f_fin.before(factual))
+                JOptionPane.showMessageDialog(null, "No se puede editar una reserva que ha sido iniciada o ya finalizada");
+            else
+            {
+                frmEditarReserva formuEdit = new frmEditarReserva(jlst_recorridos, ClienteActual.getReservas(),jlst_recorridos.getSelectedIndex());
+                formuEdit.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                formuEdit.setLocationRelativeTo(this);
+                formuEdit.setVisible(true);
+            }
         }
     }//GEN-LAST:event_btnEditarMouseClicked
 

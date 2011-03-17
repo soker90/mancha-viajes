@@ -34,7 +34,7 @@ public class frmPagoReserva extends javax.swing.JFrame {
         this.Reserva=r;
         this.pendiente_act=Reserva.getImporteRestante();
         initComponents();
-        txt_total.setText(Double.toString(Reserva.getRecorrido().getPrecio()));
+        txt_total.setText(Double.toString(Reserva.getImporteTotal()));
         txt_pendiente.setText(Double.toString(pendiente_act));
         txt_pago.addKeyListener(txt_pago_accion);
         frmpadre=padre;

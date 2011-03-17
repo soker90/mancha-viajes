@@ -41,12 +41,11 @@ public class frmDevolucion extends javax.swing.JFrame {
         double MsRealizados = factual.getTime()-finicio.getTime();
         int diasRealizados=(int)(((MsRealizados/1000)/3600)/24)+1;
         int PorcentDevol=(int)(100-((diasRealizados*100)/totaldias));
- 
         double importeTotal=ClienteActual.getReservas().get(posicion).getImporteTotal();
         double importeDevol=importeTotal*((double)PorcentDevol/100);
         initComponents();
         txtDiasTranscurridos.setText(Integer.toString(diasRealizados));
-        txtImporteDevol.setText(Double.toString(importeDevol));
+        txtImporteDevol.setText(Double.toString(importeDevol-ClienteActual.getReservas().get(posicion).getImporteRestante()));
         txtPDiasRestantes.setText(Integer.toString(totaldias-diasRealizados));
         txtPorcentajeNoRealizado.setText(Integer.toString(PorcentDevol));
     }
