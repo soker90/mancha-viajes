@@ -20,10 +20,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 
-//@author Pablete Serna Perea.
+
 public class frmPrincipal extends JFrameImage {
     public static Sistema agencia;
-    /** Creates new form frmPrincipal */
+
     public frmPrincipal() throws ClassNotFoundException, IOException {
         agencia= new Sistema();
         CargarDatos();
