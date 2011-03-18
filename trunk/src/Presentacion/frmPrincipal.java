@@ -58,11 +58,12 @@ public class frmPrincipal extends JFrameImage {
         btn_Clientes = new javax.swing.JButton();
         btn_VerCatalogo = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        btnAcercaDe = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_Ciudades.setBackground(new java.awt.Color(60, 150, 97));
-        btn_Ciudades.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        btn_Ciudades.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
         btn_Ciudades.setForeground(new java.awt.Color(255, 255, 255));
         btn_Ciudades.setText("Ciudades");
         btn_Ciudades.setToolTipText("Ver Ciudades");
@@ -74,7 +75,7 @@ public class frmPrincipal extends JFrameImage {
         });
 
         btnLimpiarRecorridos.setBackground(new java.awt.Color(60, 150, 97));
-        btnLimpiarRecorridos.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        btnLimpiarRecorridos.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
         btnLimpiarRecorridos.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiarRecorridos.setText("Limpiar Recorridos Finalizados");
         btnLimpiarRecorridos.setToolTipText("Limpiar Recorridos Finalizados");
@@ -86,7 +87,7 @@ public class frmPrincipal extends JFrameImage {
         });
 
         btn_Clientes.setBackground(new java.awt.Color(60, 150, 97));
-        btn_Clientes.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        btn_Clientes.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
         btn_Clientes.setForeground(new java.awt.Color(255, 255, 255));
         btn_Clientes.setText("Clientes");
         btn_Clientes.setToolTipText("Ver Ciudades");
@@ -98,7 +99,7 @@ public class frmPrincipal extends JFrameImage {
         });
 
         btn_VerCatalogo.setBackground(new java.awt.Color(60, 150, 97));
-        btn_VerCatalogo.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        btn_VerCatalogo.setFont(new java.awt.Font("Comic Sans MS", 0, 12));
         btn_VerCatalogo.setForeground(new java.awt.Color(255, 255, 255));
         btn_VerCatalogo.setText("Catálogo");
         btn_VerCatalogo.setToolTipText("Ver Catálogo");
@@ -118,6 +119,14 @@ public class frmPrincipal extends JFrameImage {
             }
         });
 
+        btnAcercaDe.setText("?");
+        btnAcercaDe.setName("btnAcercaDe"); // NOI18N
+        btnAcercaDe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAcerca_click(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,18 +138,17 @@ public class frmPrincipal extends JFrameImage {
                     .addComponent(btn_VerCatalogo, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                     .addComponent(btn_Ciudades, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                     .addComponent(btnLimpiarRecorridos, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
-                .addGap(252, 252, 252)
+                .addGap(209, 209, 209)
+                .addComponent(btnAcercaDe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_VerCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -149,7 +157,12 @@ public class frmPrincipal extends JFrameImage {
                         .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnLimpiarRecorridos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))))
+                        .addGap(47, 47, 47))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAcercaDe, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
 
         pack();
@@ -269,6 +282,14 @@ public class frmPrincipal extends JFrameImage {
         c.setVisible(true);
     }//GEN-LAST:event_btn_CiudadesMouseClicked
 
+    private void btnAcerca_click(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAcerca_click
+        frmAcercaDe f=new frmAcercaDe();
+        f.setVisible(true);
+        f.setResizable(false);
+        f.setLocationRelativeTo(f);
+        f.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_btnAcerca_click
+
      public final void ComprabarRecorridosPagados()
     {
         boolean mostrar = false;
@@ -308,6 +329,7 @@ public class frmPrincipal extends JFrameImage {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAcercaDe;
     private javax.swing.JButton btnLimpiarRecorridos;
     private javax.swing.JButton btn_Ciudades;
     private javax.swing.JButton btn_Clientes;
