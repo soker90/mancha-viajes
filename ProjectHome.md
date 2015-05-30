@@ -1,0 +1,1 @@
+Mancha viajes es una aplicación pensada para la gestión de una agencia de viajes, permite guardar información sobre los clientes, el catalogo de ofertas de viajes y todas las reservas realizadas.
